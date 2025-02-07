@@ -1,0 +1,94 @@
+/* src/components/LoginPage.css */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9; /* Culoare de fundal ușor gri */
+  padding: 20px;
+}
+
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Dimensiune maximă pentru a nu se întinde prea mult */
+  text-align: center;
+}
+
+.login-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Inputuri */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Buton de login */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn {
+  background-color: darkorange;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+
+/* Ecrane medii și mari (tablete și desktopuri) */
+@media (min-width: 768px) {
+  .login-container {
+    width: 400px;
+  }
+
+  .login-container input {
+    font-size: 1.1rem;
+  }
+
+  .login-btn {
+    font-size: 1.2rem;
+  }
+}
+
+/* Ecrane mici (telefoane) */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%; /* Cardul se va întinde pe aproape toată lățimea pe telefoane */
+  }
+
+  .login-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .login-container input {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .login-btn {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}

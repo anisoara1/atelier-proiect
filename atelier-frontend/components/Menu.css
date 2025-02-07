@@ -1,0 +1,254 @@
+/* src/components/Menu.css */
+.menu {
+  padding: var(--section-padding);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu h1 {
+  font-size: 2rem;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Responsive grid layout */
+  gap: 20px 60px;
+  position: relative;
+  justify-items: center;
+}
+
+.menu-item {
+  background: var(--secondary-color);
+  display: flex;
+  border: 1px solid var(--primary-color);
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-card {
+  width: 33%;
+  height: 100%; /* Fixed height for image */
+  overflow: hidden;
+}
+
+.menu-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  padding: 10px;
+  width: 67%; /* Two-thirds width for the text */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text-container h3 {
+  font-family: "Pacifico", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.text-container h5 {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.orange-line {
+  width: 70%;
+  height: 2px;
+  background-color: orange;
+  margin: 5px 0;
+}
+
+.price-container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-button {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  padding: 0.5rem;
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-box-shadow);
+  cursor: var(--button-cursor);
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: darkorange;
+  transform: scale(1.05);
+}
+
+.price {
+  font-family: "Pacifico", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.vertical-border {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: orange;
+}
+
+.load-more-button {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 20px;
+  background-color: var(--text-color);
+  color: var(--button-color);
+  padding: 0.5rem;
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-box-shadow);
+  cursor: var(--button-cursor);
+}
+
+.load-more-button:hover {
+  background-color: rgb(62, 62, 62);
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .menu-container {
+    grid-template-columns: 1fr; /* O coloană pentru tablete */
+  }
+
+  .menu-item {
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+
+  .text-container h3 {
+    font-size: 28px; /* Font mai mare pentru titlul meniului */
+    line-height: 32px;
+  }
+
+  .text-container h5 {
+    font-size: 20px; /* Font mai mare pentru descriere */
+    line-height: 26px;
+  }
+
+  .menu-button {
+    font-size: 20px; /* Dimensiune mai mare pentru buton */
+  }
+
+  .price {
+    font-size: 28px; /* Font mai mare pentru preț */
+    font-weight: 700; /* Mai gros pentru vizibilitate */
+  }
+
+  .vertical-border {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-container {
+    grid-template-columns: 1fr; /* One column for small screens */
+  }
+
+  .text-container h5 {
+    font-size: 16px;
+  }
+  .text-container {
+    padding: 10px;
+  }
+
+  .menu-button {
+    font-size: 16px; /* Smaller font for button on small devices */
+  }
+
+  .price {
+    font-size: 22px;
+  }
+
+  .load-more-button {
+    font-size: 16px;
+    cursor: var(--button-cursor);
+  }
+}
+
+@media (max-width: 534px) {
+  .menu-container {
+    grid-template-columns: 1fr; /* O coloană pentru ecrane foarte mici */
+    gap: 15px; /* Spațiu mai mic între carduri */
+  }
+
+  .menu-item {
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Shadow mai subtil */
+  }
+
+  .image-card {
+    width: 40%; /* Imagine mai mică în raport cu textul */
+    height: auto; /* Lasă imaginea să se ajusteze automat */
+  }
+
+  .text-container {
+    width: 60%; /* Mai mult spațiu pentru text */
+    padding: 5px;
+  }
+
+  .text-container h3 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .text-container h5 {
+    font-size: 14px; /* Font mai mic pentru descriere */
+    line-height: 18px;
+  }
+
+  .price {
+    font-size: 16px; /* Font redus pentru preț */
+    font-weight: 600; /* Ușor mai gros */
+  }
+
+  .load-more-button {
+    font-size: 16px; /* Butonul "Load More" să fie lizibil */
+    padding: 10px; /* Spațiu mai redus */
+  }
+}

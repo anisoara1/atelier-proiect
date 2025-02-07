@@ -1,0 +1,167 @@
+/* Stiluri generale */
+.top-dishes {
+  padding: var(--section-padding);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.dishes-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.swiper-container {
+  padding: 0 20px; /* Ajustare padding pentru ecrane mici */
+  width: 100%;
+}
+
+.dish-card {
+  border-top-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%; /* Cardurile ocupă toată lățimea containerului */
+}
+
+.dish-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+picture {
+  display: block;
+}
+
+.top-dishes-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Fundal mai opac pentru lizibilitate */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-bottom-right-radius: 70px;
+}
+
+.top-dishes-overlay h3 {
+  font-family: "Pacifico", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay-text {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.4;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.top-dishes-overlay .price {
+  font-weight: bold;
+  font-size: 14px; /* Dimensiune mai mică pentru preț */
+}
+
+.swiper-container {
+  position: relative;
+}
+
+/* General styles for the navigation arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px; /* Explicit width */
+  height: 50px; /* Explicit height */
+  color: orange;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(247, 246, 246, 0.8);
+  border-radius: 50%;
+  opacity: 1; /* Fully visible by default */
+  transition: color 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 40px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transition: background-color 0.3s ease;
+  color: darkorange;
+  opacity: 0.9;
+}
+
+/* Icons inside the buttons */
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  width: 10%; /* Resize SVG icons */
+  height: 10%;
+}
+
+.swiper-pagination {
+  position: relative;
+  bottom: -20px;
+  margin-top: 20px;
+}
+
+.swiper-pagination-bullet {
+  background-color: orange !important;
+  width: 8px; /* Dimensiuni reduse */
+  height: 8px;
+  margin: 0 3px;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: darkorange !important;
+  opacity: 1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .swiper-container {
+    padding: 0 10px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-container {
+    padding: 0 5px; /* Padding minim pe ecrane mici */
+  }
+
+  .swiper-pagination-bullet {
+    width: 6px; /* Dimensiuni mai mici pentru puncte */
+    height: 6px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px;
+  }
+}

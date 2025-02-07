@@ -1,0 +1,32 @@
+.daily-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height */
+  background-image: url("../assets/daily-img.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.view-menu-button {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  max-width: 130px;
+  max-height: 40px;
+  background-color: transparent;
+  color: var(--button-color);
+  padding: 0.5rem;
+  border: 1px solid white;
+  border-radius: var(--button-border-radius);
+  cursor: var(--button-cursor);
+  box-shadow: 0px 4px 6px rgba(169, 166, 166, 0.747);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.262);
+  transform: scale(1.05);
+}

@@ -1,0 +1,332 @@
+.header {
+  padding: 1rem 0;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.site-name {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-logo {
+  margin-right: 10px;
+}
+
+.nav-logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.nav-list li a {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-list li a:hover {
+  text-decoration: underline;
+}
+
+.book-table-button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5rem; /* Spațiere între text și iconiță */
+  font-family: "Josefin Sans", serif;
+  font-weight: 600;
+  font-style: normal;
+  background-color: var(--button-background-color); /* Fundal portocaliu */
+  color: white; /* Text alb */
+  padding: 0.5rem;
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.book-table-button:hover {
+  background-color: darkorange; /* Schimbare pe hover */
+  transform: scale(1.05); /* Efect de mărire */
+}
+
+.cart-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.cart-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.burger-menu {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+/* Make admin-link discreet */
+.admin-link {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px; /* Smaller font size */
+  font-weight: 400;
+  color: #555; /* Muted text color */
+}
+
+.admin-link li {
+  display: inline-block;
+}
+
+.admin-link a {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-link a:hover {
+  color: white;
+  background-color: #333; /* Subtle highlight on hover */
+}
+
+.admin-link a:focus {
+  outline: none;
+  box-shadow: 0 0 3px #aaa; /* Accessibility focus indication */
+}
+
+/* Overlay Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dim the background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease; /* Smooth fade effect */
+  overflow: hidden;
+}
+
+.overlay-content {
+  position: relative;
+  background: var(--secondary-color); /* Match your theme */
+  padding: 20px;
+  border-top-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  text-align: center;
+  width: 90%; /* Fit small screens */
+  max-width: 400px; /* Limit the size on larger screens */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.overlay-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overlay-list li {
+  display: flex;
+  justify-content: center;
+}
+
+.overlay-list li a {
+  color: var(--text-color); /* Match the text theme */
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Slight background for visibility */
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  padding: 0.5rem;
+
+  border-radius: var(--button-border-radius);
+}
+
+.overlay-list li a:hover {
+  background-color: var(--button-background-color); /* Match button hover */
+  color: white; /* Invert text color */
+}
+
+.overlay-close {
+  color: var(--text-color);
+  font-size: 14px;
+  position: absolute;
+  padding: 7px 9px;
+  top: 10px;
+  right: 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 6px 9px;
+  background-color: white;
+}
+
+.overlay-close:hover {
+  color: white;
+  background-color: var(--button-background-color);
+  transform: scale(1.1);
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+/* Responsive Styling */
+@media (max-width: 1300px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Tablet Screens */
+  .container {
+    gap: 0.5rem;
+  }
+
+  .nav-list {
+    gap: 0.8rem;
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .nav-logo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .book-table-button {
+    padding: 8px;
+    width: auto;
+  }
+}
+
+@media (max-width: 830px) {
+  /* Mobile Screens */
+  .container {
+    gap: 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .nav-list li a {
+    font-size: 12px;
+  }
+
+  .nav-logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .book-table-button {
+    padding: 0.5em 1em;
+    background-color: rgba(201, 199, 199, 0.208);
+  }
+
+  .book-table-button:hover {
+    background-color: rgba(201, 199, 199, 0.449); /* Schimbare pe hover */
+    transform: scale(1.05); /* Efect de mărire */
+  }
+
+  .cart-icon {
+    color: darkorange;
+    display: inline-block;
+  }
+
+  .cart-text {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .nav,
+  .admin-link {
+    display: none;
+  }
+
+  .book-table-button {
+    font-size: 16px;
+    width: auto;
+  }
+
+  .overlay-content {
+    width: 95%;
+    max-width: 350px;
+    padding: 15px;
+    border: 2px solid var(--button-background-color);
+  }
+
+  .overlay-list li a {
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 490px) {
+  .header h1 {
+    font-size: 1.1rem;
+  }
+}

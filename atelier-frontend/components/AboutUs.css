@@ -1,0 +1,112 @@
+.about-us {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px; /* Added padding for smaller screens */
+  position: relative;
+}
+
+.about-us-container {
+  display: flex;
+  flex-direction: row; /* Default horizontal layout */
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 30px; /* Space between image and text */
+}
+
+.image-container {
+  flex: 1; /* Take up 50% of the space */
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  overflow: hidden; /* Ensure content respects rounded corners */
+}
+
+.about-us-image {
+  width: 100%; /* Full width of container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.about-us-text-container {
+  flex: 1; /* Take up 50% of the space */
+  text-align: left;
+}
+
+.about-us-text-container h2 {
+  font-size: 1.9rem;
+  margin: 0 0 20px 0;
+}
+
+.about-us-text-container p {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
+}
+
+/* Media Queries */
+
+@media (max-width: 1024px) {
+  .about-us {
+    display: block;
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  .image-container {
+    display: none; /* Ascundem containerul imaginii */
+  }
+
+  .about-us {
+    background-image: url("../assets/atelier.jpg"); /* Setăm imaginea ca fundal */
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .about-us-text-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3); /* Fundal semitransparent */
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: auto;
+  }
+
+  .about-us-text-container h2 {
+    font-size: 50px;
+    color: white;
+  }
+
+  .about-us-text-container p {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+/* Stiluri pentru ecrane mici */
+@media (max-width: 768px) {
+  .about-us-text-container h2 {
+    font-size: 30px;
+  }
+
+  .about-us-text-container p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 450px) {
+  .about-us-text-container p:last-of-type {
+    display: none;
+  }
+}

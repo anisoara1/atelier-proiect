@@ -1,0 +1,226 @@
+.daily-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--section-padding);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column; /* Stack the cards vertically */
+  gap: 20px; /* Space between the cards */
+  width: 90%;
+  padding: 10px;
+}
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: var(--button-background-color);
+  padding: var(--button-padding);
+  background-color: rgba(201, 199, 199, 0.208);
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+}
+
+.back-arrow:hover {
+  background-color: rgba(201, 199, 199, 0.449);
+  transform: scale(1.05);
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.daily-menu-card {
+  background: var(--secondary-color);
+  display: flex;
+  border: 1px solid var(--primary-color);
+  border-top-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.daily-menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.daily-img-card {
+  width: 33%; /* Full width for images */
+  flex: 1; /* Let the image container occupy available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensure the image stays within the container */
+}
+
+.daily-menu-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.daily-text-container {
+  padding: 20px;
+  width: 67%; /* Two-thirds width for the text */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.daily-text-container h3 {
+  font-family: "Pacifico", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.daily-text-container h5 {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 20px;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.daily-orange-line {
+  width: 70%;
+  height: 2px;
+  background-color: orange;
+  margin: 5px 0;
+}
+
+.menu-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.daily-order-button {
+  font-family: "Josefin Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  padding: 0.5rem;
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-box-shadow);
+  cursor: var(--button-cursor);
+  transition: background-color 0.3s ease;
+}
+
+.daily-order-button:hover {
+  background-color: darkorange;
+  transform: scale(1.05);
+}
+
+.daily-price {
+  font-family: "Pacifico", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .daily-menu-card {
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+
+  .daily-text-container h3 {
+    font-size: 28px; /* Font mai mare pentru titlul meniului */
+    line-height: 32px;
+  }
+
+  .daily-text-container h5 {
+    font-size: 20px; /* Font mai mare pentru descriere */
+    line-height: 26px;
+  }
+
+  .daily-menu-button {
+    font-size: 20px; /* Dimensiune mai mare pentru buton */
+  }
+
+  .daily-price {
+    font-size: 28px; /* Font mai mare pentru preț */
+    font-weight: 700; /* Mai gros pentru vizibilitate */
+  }
+}
+
+@media (max-width: 768px) {
+  .daily-text-container h5 {
+    font-size: 18px;
+  }
+  .daily-text-container {
+    padding: 10px;
+  }
+
+  .daily-menu-button {
+    font-size: 16px; /* Smaller font for button on small devices */
+  }
+
+  .daily-price {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 534px) {
+  .daily-menu-list h1 {
+    font-size: 1.1rem;
+  }
+
+  .daily-menu-card {
+    max-height: 150px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Shadow mai subtil */
+  }
+
+  .daily-text-container {
+    width: 60%; /* Mai mult spațiu pentru text */
+    padding: 5px;
+  }
+
+  .daily-text-container h3 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .daily-order-button {
+    font-size: 14px;
+  }
+
+  .daily-text-container h5 {
+    font-size: 14px; /* Font mai mic pentru descriere */
+    line-height: 18px;
+  }
+
+  .daily-price {
+    font-size: 14px; /* Font redus pentru preț */
+  }
+}
