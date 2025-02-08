@@ -1,25 +1,42 @@
-services:
-  backend:
-    build: ./atelier-server
-    ports:
-      - "5000:5000"
-    env_file:
-      - ./atelier-server/.env
-    depends_on:
-      - db # Backend trebuie să aștepte doar baza de date
+name: Deploy Project
 
-  frontend:
-    build: ./atelier-frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend # Frontend așteaptă backend-ul
+on:
+  push:
+    branches:
+      - main
 
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: atelier_db
-    ports:
-      - "5432:5432"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Start MongoDB
+        run: docker run -d -p 27017:27017 --name mongo mongo:6.0
+
+      - name: Create .env file for backend
+        run: |
+          echo "MONGO_URI=mongodb://localhost:27017/atelierDB" > .env
+          echo "NODE_ENV=production" >> .env
+          echo "SERVER_URL=http://localhost:5000" >> .env
+        working-directory: ./atelier-server
+
+      - name: Build and run containers
+        run: docker-compose up -d --build
+
+      - name: Install frontend dependencies
+        run: |
+          cd atelier-frontend
+          npm install
+          npm run build
+
+      - name: Deploy frontend to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./atelier-frontend/build

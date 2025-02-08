@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Rulează serverul
-CMD ["node", "server.js"]
+CMD ["node", "app.js"]
