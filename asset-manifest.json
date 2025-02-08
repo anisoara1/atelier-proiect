@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/atelier/static/css/main.10801860.css",
+    "main.js": "/atelier/static/js/main.7aff7abc.js",
+    "static/js/488.519d3dc6.chunk.js": "/atelier/static/js/488.519d3dc6.chunk.js",
+    "static/media/daily-img.png": "/atelier/static/media/daily-img.0655d63780c0997cb26b.png",
+    "static/media/primeicons.svg": "/atelier/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/cola-drink.jpg": "/atelier/static/media/cola-drink.6a3cc44d3cf9eab0b573.jpg",
+    "static/media/fresh-baked-donuts.jpg": "/atelier/static/media/fresh-baked-donuts.f608f9e24905bade9b3a.jpg",
+    "static/media/logo.jpg": "/atelier/static/media/logo.51b275d3a8512abc170f.jpg",
+    "static/media/primeicons.eot": "/atelier/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
+    "static/media/primeicons.woff": "/atelier/static/media/primeicons.8931fda1930c3bd21e96.woff",
+    "static/media/primeicons.ttf": "/atelier/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
+    "static/media/primeicons.woff2": "/atelier/static/media/primeicons.024b32cc7bf399b1a847.woff2",
+    "static/media/atelier.jpg": "/atelier/static/media/atelier.fae06e61bb8ff06cf6da.jpg",
+    "index.html": "/atelier/index.html",
+    "main.10801860.css.map": "/atelier/static/css/main.10801860.css.map",
+    "main.7aff7abc.js.map": "/atelier/static/js/main.7aff7abc.js.map",
+    "488.519d3dc6.chunk.js.map": "/atelier/static/js/488.519d3dc6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.10801860.css",
+    "static/js/main.7aff7abc.js"
+  ]
+}
