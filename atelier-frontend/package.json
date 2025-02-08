@@ -2,7 +2,7 @@
   "name": "atelier",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://anisoara1.github.io/atelier",
+  "homepage": "https://anisoara1.github.io/atelier-proiect",
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
