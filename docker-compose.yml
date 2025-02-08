@@ -1,42 +1,38 @@
-name: Deploy Project
+version: "3.8"
 
-on:
-  push:
-    branches:
-      - main
+services:
+  backend:
+    build:
+      context: ./atelier-server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb+srv://anisoara:123%40.%40ateliercluster.adlz5.mongodb.net/atelierDB
+      - NODE_ENV=development
+      - SERVER_URL=http://localhost:5000
+    volumes:
+      - ./atelier-server:/app
+    depends_on:
+      - mongo
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  frontend:
+    build:
+      context: ./atelier-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+    volumes:
+      - ./atelier:/app
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Start MongoDB
-        run: docker run -d -p 27017:27017 --name mongo mongo:6.0
-
-      - name: Create .env file for backend
-        run: |
-          echo "MONGO_URI=mongodb://localhost:27017/atelierDB" > .env
-          echo "NODE_ENV=production" >> .env
-          echo "SERVER_URL=http://localhost:5000" >> .env
-        working-directory: ./atelier-server
-
-      - name: Build and run containers
-        run: docker-compose up -d --build
-
-      - name: Install frontend dependencies
-        run: |
-          cd atelier-frontend
-          npm install
-          npm run build
-
-      - name: Deploy frontend to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./atelier-frontend/build
+volumes:
+  mongo-data:
