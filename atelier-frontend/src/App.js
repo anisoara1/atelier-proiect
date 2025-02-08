@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { HomePage } from "./pages/HomePage/Homepage";
-import { AdminPage } from "./pages/AdminPage/AdminPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
+import { HomePage } from "./pages/HomePage/Homepage.jsx";
+import { AdminPage } from "./pages/AdminPage/AdminPage.jsx";
+import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import PrivateRoute from "./components/PrivateRoute";
 import store from "./redux/store";
 import { NavBar } from "./components/NavBar";
-import DailyList from "./components/DailyList";
-import CartPage from "./pages/CartPage/CartPage";
-
+import DailyList from "./components/DailyList.jsx";
+import { CartPage } from "./pages/CartPage/CartPage.jsx";
 function App() {
   const [cartItems, setCartItems] = useState([]);
 

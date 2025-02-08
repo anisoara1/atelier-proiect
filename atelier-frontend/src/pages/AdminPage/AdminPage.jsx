@@ -9,6 +9,7 @@ import {
 import "./AdminPage.css";
 
 export const AdminPage = () => {
+  const baseURL = process.env.REACT_APP_SERVER_URL_DEV;
   const { products, loading, error } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const formRef = useRef(null);
@@ -119,8 +120,12 @@ export const AdminPage = () => {
               </div>
               {product.image && (
                 <img
-                  src={`${process.env.REACT_APP_SERVER_URL_DEV}${product.image}`}
-                  alt={product.name}
+                  src={`${baseURL}${
+                    product.image.startsWith("/")
+                      ? product.image
+                      : `/${product.image}`
+                  }`}
+                  alt={product.title || "Imagine indisponibilă"}
                   className="product-image"
                 />
               )}

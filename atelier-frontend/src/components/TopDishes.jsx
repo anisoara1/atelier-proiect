@@ -10,6 +10,7 @@ import "./TopDishes.css";
 
 const TopDishes = () => {
   const baseURL = process.env.REACT_APP_SERVER_URL_DEV;
+  console.log("Base URL:", baseURL);
   const swiperRef = useRef(null);
   const dispatch = useDispatch();
 

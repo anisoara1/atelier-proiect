@@ -10,7 +10,7 @@ import orangeDrink from "../../assets/orange-drink.jpg";
 import waterDrink from "../../assets/water-drink.jpg";
 import { removeFromCart } from "../../redux/slices/cartSlice";
 
-const CartPage = ({ updateQuantity }) => {
+export const CartPage = ({ updateQuantity }) => {
   const baseURL = process.env.REACT_APP_SERVER_URL_DEV;
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
