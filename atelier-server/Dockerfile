@@ -8,7 +8,16 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalează dependențele
-RUN npm install
+RUN apk add --no-cache \
+    build-base \
+    cairo-dev \
+    pango-dev \
+    libjpeg-turbo-dev \
+    giflib-dev \
+    && npm install --include=optional sharp
+
+# Rebuild pentru modulul sharp
+RUN npm rebuild sharp
 
 # Copiază codul aplicației
 COPY . .
@@ -18,3 +27,4 @@ EXPOSE 5000
 
 # Rulează serverul
 CMD ["node", "app.js"]
+
