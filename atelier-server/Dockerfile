@@ -1,20 +1,20 @@
-# Folosește o imagine mai recentă de Node.js
-FROM node:18.17.0
+# Folosește o imagine oficială de Node.js
+FROM node:18-alpine
 
 # Setează directorul de lucru
 WORKDIR /app
 
-# Copiați package.json și package-lock.json
+# Copiază package.json și package-lock.json
 COPY package*.json ./
 
-# Instalați dependențele
+# Instalează dependențele
 RUN npm install
 
-# Copiați restul fișierelor aplicației
+# Copiază codul aplicației
 COPY . .
 
-# Expuneți portul pe care rulează aplicația
+# Expune portul pe care rulează aplicația
 EXPOSE 5000
 
-# Comanda de rulare a aplicației
-CMD ["node", "app.js"]
+# Rulează serverul
+CMD ["node", "server.js"]

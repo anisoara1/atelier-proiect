@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: ./atelier-server
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./atelier-server/.env
+    depends_on:
+      - db # Backend trebuie să aștepte doar baza de date
+
+  frontend:
+    build: ./atelier-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend # Frontend așteaptă backend-ul
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: atelier_db
+    ports:
+      - "5432:5432"
