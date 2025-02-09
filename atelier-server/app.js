@@ -21,13 +21,13 @@ dotenv.config();
 const app = express();
 app.use(helmet());
 
-// Redirect HTTP to HTTPS
+/* // Redirect HTTP to HTTPS
 app.use((req, res, next) => {
   if (req.headers["x-forwarded-proto"] !== "https") {
     return res.redirect("https://" + req.headers.host + req.url);
   }
   next();
-});
+}); */
 
 // Middleware
 app.use(express.json());
@@ -74,7 +74,9 @@ mongoose
   .connect(mongoUri)
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
+    });
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err.message);

@@ -1,30 +1,20 @@
-# Folosește o imagine oficială de Node.js
-FROM node:18-alpine
+# Folosește o imagine mai recentă de Node.js
+FROM node:18.17.0
 
 # Setează directorul de lucru
 WORKDIR /app
 
-# Copiază package.json și package-lock.json
+# Copiați package.json și package-lock.json
 COPY package*.json ./
 
-# Instalează dependențele
-RUN apk add --no-cache \
-    build-base \
-    cairo-dev \
-    pango-dev \
-    libjpeg-turbo-dev \
-    giflib-dev \
-    && npm install --include=optional sharp
+# Instalați dependențele
+RUN npm install
 
-# Rebuild pentru modulul sharp
-RUN npm rebuild sharp
-
-# Copiază codul aplicației
+# Copiați restul fișierelor aplicației
 COPY . .
 
-# Expune portul pe care rulează aplicația
+# Expuneți portul pe care rulează aplicația
 EXPOSE 5000
 
-# Rulează serverul
+# Comanda de rulare a aplicației
 CMD ["node", "app.js"]
-
