@@ -1,4 +1,4 @@
-const Jimp = require("jimp");
+const sharp = require("sharp");
 const path = require("path");
 const fs = require("fs-extra");
 const Product = require("../models/productModel");
@@ -7,8 +7,9 @@ const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
     res.status(200).json(products);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).json({ error: "Eroare la obținerea produselor" });
   }
 };
 
@@ -37,10 +38,8 @@ const addProduct = async (req, res) => {
         `temp_${req.file.filename}`
       );
 
-      // Resize the image and save it temporarily using Jimp
-      const image = await Jimp.read(filePath);
-      image.resize(800, 600); // Resize the image to 800x600
-      await image.writeAsync(tempPath); // Save the resized image to tempPath
+      // Resize the image and save it temporarily
+      await sharp(filePath).resize(800, 600).toFile(tempPath);
 
       // Replace the original file with the resized file
       await fs.rename(tempPath, filePath);
